@@ -88,29 +88,6 @@ for i,v in pairs(game:GetDescendants()) do
    end
 end
 
-
---Chat handler (soo people can see your messages) (YOU CAN EDIT THIS IF THE GAME YOUR PLAYING HAVE A CUSTOM CHAT)
-game.Players.LocalPlayer.Chatted:Connect(function(msg)
-   if game:GetService("ReplicatedStorage"):FindFirstChild("DefaultChatSystemChatEvents") ~= nil then
-    if game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest") ~= nil then
-    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest"):FireServer(msg, "All")
-    end
-   end
-end)
-
---Delete Chat if found
-if game.Players.LocalPlayer:FindFirstChild("PlayerGui") == nil then
-   game.Players.LocalPlayer:WaitForChild("PlayerGui")
-end
-
-if game.Players.LocalPlayer.PlayerGui:FindFirstChild("Chat") == nil then
-   game.Players.LocalPlayer.PlayerGui:WaitForChild("Chat"):Destroy()
-else
-   game.Players.LocalPlayer.PlayerGui["Chat"]:Destroy()
-end
-
-
-
 --The Health bar always on
 game.Players.PlayerAdded:Connect(function(plr)
    task.spawn(function()
